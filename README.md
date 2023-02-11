@@ -1,2 +1,1 @@
-# WiSe22-23_EIA2_Endabgabe
- 
+# EIA2_Endabgabe
