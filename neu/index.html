@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firework</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="hedding"> 
+        <h1>Build your firework!</h1>
+    </div>
+
+    <div id="settings">
+
+        <h2>Rocket ?</h2>
+
+        <form>
+            <fieldset>
+                <legend>Radius</legend>
+                <input type="range" name="formRadius" id="FormRadius" min="5" max="15" step="1">
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Particles</legend>
+                <input type="range" name="formParticles" id="formParticles" min="5" max="15" step="1">
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Color</legend>
+                <input type="color" name="formColor" id="formColor">
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Duration</legend>
+                <input type="range" name="formDuration" id="formDuration" min="5" max="15" step="1">
+            </fieldset>
+            <br>
+            <button type="button" id="saveButton">save</button>
+        </form>
+
+    </div>
+
+    <div id="rocketSelection">
+
+        <h2>Choose a rocket</h2>
+
+        <div id="rocketOne">1</div>
+        <div id="rocketTwo">2</div>
+        <div id="rocketThree">3</div>
+        <div id="rocketFour">4</div>
+
+    </div>
+
+    <div id="canvasDiv">
+
+        <div id="canvasHedding">
+            <h2>Click on the field to play the firework</h2>
+        </div>
+
+        <canvas></canvas>
+
+    </div>
+
+</body>
+
+</html>
