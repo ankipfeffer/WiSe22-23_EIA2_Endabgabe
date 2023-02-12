@@ -1,14 +1,14 @@
-var firework;
-(function (firework) {
+var firework_old;
+(function (firework_old) {
     window.addEventListener("load", hndLoad);
     function hndLoad(_event) {
         console.log("hndLoad");
         let canvas = document.querySelector("canvas");
         if (!canvas)
             return;
-        firework.crc2 = canvas.getContext("2d");
-        firework.crc2.fillStyle = "hsla(273, 79%, 86%, 1)";
-        firework.crc2.fillRect(0, 0, firework.crc2.canvas.width, firework.crc2.canvas.height);
+        firework_old.crc2 = canvas.getContext("2d");
+        firework_old.crc2.fillStyle = "hsla(273, 79%, 86%, 1)";
+        firework_old.crc2.fillRect(0, 0, firework_old.crc2.canvas.width, firework_old.crc2.canvas.height);
         gameStart();
         document.querySelector("button#saveButton").addEventListener("click", startButtonClick);
         document.querySelector("form").addEventListener("change", formChange);
@@ -39,5 +39,5 @@ var firework;
         console.log("Form Change");
         showFormEntries();
     }
-})(firework || (firework = {}));
+})(firework_old || (firework_old = {}));
 //# sourceMappingURL=main.js.map

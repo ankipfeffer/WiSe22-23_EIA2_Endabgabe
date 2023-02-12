@@ -1,4 +1,4 @@
-namespace firework {
+namespace firework_old {
 
     window.addEventListener("load", hndLoad);
 

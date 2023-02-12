@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firework</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Particle/particle.js"></script>
+    <script src="Rocket/rocket.js"></script>
+    <script src="Server/server.js"></script>
+    <script src="Shapes/circle.js"></script>
+    <script src="Shapes/square.js"></script>
+    <script src="Vector/vector.js"></script>
+    <script src="Main/main.js"></script>
+</head>
+
+<body>
+    <div id="hedding"> 
+        <h1>Build your firework!</h1>
+    </div>
+
+    <div id="settings">
+
+        <h2>Rocket ?</h2>
+
+        <form>
+            <fieldset>
+                <legend>Explotion Size</legend>
+                <input type="range" name="formDuration" id="FormDuration" min="20" max="80" step="1">
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Particle Shape</legend>
+                <input type="radio" name="formShape" id="formShape" value="circle" checked=""checked>
+                <label for="circleShape">Circle</label>
+                <input type= "radio" name="formShape" id="formShape" value="square">
+                <label for="squareShape">Square</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Color</legend>
+                <input type="color" name="formColor" id="formColor" value="#E7B631">
+            </fieldset>
+            <br>
+            <button type="button" id="saveButton">save</button>
+        </form>
+
+    </div>
+
+    <div id="rocketSelection">
+
+        <h2>Choose a rocket</h2>
+
+        <div id="rocketOne">1</div>
+        <div id="rocketTwo">2</div>
+        <div id="rocketThree">3</div>
+        <div id="rocketFour">4</div>
+
+    </div>
+
+    <div id="canvasDiv">
+
+        <div id="canvasHedding">
+            <h2>Click on the field to play the firework</h2>
+        </div>
+
+        <canvas></canvas>
+
+    </div>
+
+</body>
+
+</html>
