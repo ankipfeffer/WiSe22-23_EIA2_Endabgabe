@@ -1,6 +1,6 @@
 //  Aufgabe: Endabgabe Feuerwerk
     //  Name: Ann-Kathrin Pfeffer
-    //  Matrikel: 269899
+    //  Matrikel: 269354
     //  Datum: 12.02.2023
     //  Quellen: In Zusammenarbeit mit Vivien Peschke, Cara Brüggendieck und Henning Pils
 
@@ -78,16 +78,12 @@ namespace firework {
             let rocketOneData: RocketData = serverRockets[0];
 
             duration.value = rocketOneData.formDuration;
-   
-            shape.value = rocketOneData.formShape;
-            
-
+            shape.value = rocketOneData.formShape;        
             color.value = rocketOneData.formColor;
 
             console.log(duration.value);
             console.log(shape.value);
             console.log(color.value);
-
 
         } else if (rocketTwo == true) {
             let rocketTwoData: RocketData = serverRockets[1];
@@ -121,15 +117,8 @@ namespace firework {
             console.log(duration.value);
             console.log(shape.value);
             console.log(color.value);
-
         }
 
         return serverRockets;
-
-
-
     }
-
-
-
 }
