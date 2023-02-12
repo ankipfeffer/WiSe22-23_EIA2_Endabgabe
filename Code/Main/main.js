@@ -3,11 +3,7 @@ var firework;
     let duration;
     let shape;
     let color;
-    let radius;
-    let opacity;
-    let velocity;
     let rocket = [];
-    let particle;
     firework.rocketOne = true;
     firework.rocketTwo = false;
     firework.rocketThree = false;
@@ -19,20 +15,21 @@ var firework;
         if (!firework.canvas)
             return;
         firework.crc2 = firework.canvas.getContext("2d");
-        firework.crc2.canvas.width = window.innerWidth * 0.6;
-        firework.crc2.canvas.height = window.innerHeight * 0.6;
+        firework.crc2.canvas.width = window.innerWidth * 0.7;
+        firework.crc2.canvas.height = window.innerHeight * 0.7;
         document.querySelector("canvas").addEventListener("click", canvasClick);
         document.querySelector("button#saveButton").addEventListener("click", saveButtonClick);
         document.getElementById("rocketOne").addEventListener("click", rocketButtonClick);
         document.getElementById("rocketTwo").addEventListener("click", rocketButtonClick);
         document.getElementById("rocketThree").addEventListener("click", rocketButtonClick);
         document.getElementById("rocketFour").addEventListener("click", rocketButtonClick);
+        firework.getSavedRocket();
         window.setInterval(update, 20);
     }
     function canvasClick(_event) {
         let rect = firework.canvas.getBoundingClientRect();
-        let mousePositionX = _event.clientX - rect.left - 110;
-        let mousePositionY = _event.clientY - rect.top - 60;
+        let mousePositionX = _event.clientX - rect.left - 10;
+        let mousePositionY = _event.clientY - rect.top - 10;
         console.log(mousePositionX, mousePositionY);
         let formData = new FormData(document.forms[0]);
         for (let entry of formData) {
@@ -61,7 +58,7 @@ var firework;
             }
         }
     }
-    async function saveButtonClick(_addend) {
+    async function saveButtonClick(_event) {
         let formData = new FormData(document.forms[0]);
         for (let entry of formData) {
             duration = Number(formData.get("formDuration"));
@@ -79,28 +76,32 @@ var firework;
     function rocketButtonClick(_event) {
         let eventTarget = _event.target;
         let rocketDivOne = document.getElementById("rocketOne");
+        let rocketImageOne = document.getElementById("rocketImageOne");
         let rocketDivTwo = document.getElementById("rocketTwo");
+        let rocketImageTwo = document.getElementById("rocketImageTwo");
         let rocketDivThree = document.getElementById("rocketThree");
+        let rocketImageThree = document.getElementById("rocketImageThree");
         let rocketDivFour = document.getElementById("rocketFour");
-        if (eventTarget == rocketDivOne) {
+        let rocketImageFour = document.getElementById("rocketImageFour");
+        if (eventTarget == rocketDivOne || eventTarget == rocketImageOne) {
             firework.rocketOne = true;
             firework.rocketTwo = false;
             firework.rocketThree = false;
             firework.rocketFour = false;
         }
-        else if (eventTarget == rocketDivTwo) {
+        else if (eventTarget == rocketDivTwo || eventTarget == rocketImageTwo) {
             firework.rocketOne = false;
             firework.rocketTwo = true;
             firework.rocketThree = false;
             firework.rocketFour = false;
         }
-        else if (eventTarget == rocketDivThree) {
+        else if (eventTarget == rocketDivThree || eventTarget == rocketImageThree) {
             firework.rocketOne = false;
             firework.rocketTwo = false;
             firework.rocketThree = true;
             firework.rocketFour = false;
         }
-        else if (eventTarget == rocketDivFour) {
+        else if (eventTarget == rocketDivFour || eventTarget == rocketImageFour) {
             firework.rocketOne = false;
             firework.rocketTwo = false;
             firework.rocketThree = false;

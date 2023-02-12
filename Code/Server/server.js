@@ -44,25 +44,46 @@ var firework;
         //key = ID 
         for (let key in data["data"]) {
             firework.serverRockets.push(data["data"][key]);
-            // let test: any = data.data[key];
         }
         console.log(firework.serverRockets);
+        let duration = document.getElementById("formDuration");
+        let shape = document.getElementById("formShape");
+        let color = document.getElementById("formColor");
         if (firework.rocketOne == true) {
             let rocketOneData = firework.serverRockets[0];
-            console.log(rocketOneData.duration);
-            console.log(rocketOneData[0]);
+            duration.value = rocketOneData.formDuration;
+            shape.value = rocketOneData.formShape;
+            color.value = rocketOneData.formColor;
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
         }
         else if (firework.rocketTwo == true) {
             let rocketTwoData = firework.serverRockets[1];
-            console.log(rocketTwoData);
+            duration.value = rocketTwoData.formDuration;
+            shape.value = rocketTwoData.formShape;
+            color.value = rocketTwoData.formColor;
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
         }
         else if (firework.rocketThree == true) {
             let rocketThreeData = firework.serverRockets[2];
-            console.log(rocketThreeData);
+            duration.value = rocketThreeData.formDuration;
+            shape.value = rocketThreeData.formShape;
+            color.value = rocketThreeData.formColor;
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
         }
         else if (firework.rocketFour == true) {
             let rocketFourData = firework.serverRockets[3];
-            console.log(rocketFourData);
+            duration.value = rocketFourData.formDuration;
+            shape.value = rocketFourData.formShape;
+            color.value = rocketFourData.formColor;
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
         }
         return firework.serverRockets;
     }

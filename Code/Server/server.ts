@@ -3,9 +3,9 @@ namespace firework {
     export let url: string = "https://webuser.hs-furtwangen.de/~pfeffern/Database/index.php";
     export let serverRockets: RocketData[] = [];
     export interface RocketData {
-        duration: number;
-        shape: string;
-        color: string;
+        formDuration: string;
+        formShape: string;
+        formColor: string;
     }
 
     export async function sendData(_formData: FormData): Promise<void> {
@@ -50,9 +50,9 @@ namespace firework {
 
 
     export async function getSavedRocket(): Promise<any> {
-        
+
         serverRockets.splice(0, serverRockets.length);
-        
+
 
         let response: Response = await fetch(url + "?command=find&collection=rocket");
         let item: string = await response.text();
@@ -60,33 +60,67 @@ namespace firework {
         //key = ID 
         for (let key in data["data"]) {
             serverRockets.push(data["data"][key]);
-
-            // let test: any = data.data[key];
         }
         console.log(serverRockets);
 
+        let duration: HTMLInputElement = <HTMLInputElement>document.getElementById("formDuration");
+        let shape: HTMLInputElement = <HTMLInputElement>document.getElementById("formShape");
+        let color: HTMLInputElement = <HTMLInputElement>document.getElementById("formColor");
+
+
         if (rocketOne == true) {
             let rocketOneData: RocketData = serverRockets[0];
-            console.log(rocketOneData.duration);
-            console.log(rocketOneData[0]);
+
+            duration.value = rocketOneData.formDuration;
+   
+            shape.value = rocketOneData.formShape;
+            
+
+            color.value = rocketOneData.formColor;
+
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
+
 
         } else if (rocketTwo == true) {
             let rocketTwoData: RocketData = serverRockets[1];
-            console.log(rocketTwoData);
+
+            duration.value = rocketTwoData.formDuration;
+            shape.value = rocketTwoData.formShape;
+            color.value = rocketTwoData.formColor;
+
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
 
         } else if (rocketThree == true) {
             let rocketThreeData: RocketData = serverRockets[2];
-            console.log(rocketThreeData);
+
+            duration.value = rocketThreeData.formDuration;
+            shape.value = rocketThreeData.formShape;
+            color.value = rocketThreeData.formColor;
+
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
 
         } else if (rocketFour == true) {
             let rocketFourData: RocketData = serverRockets[3];
-            console.log(rocketFourData);
+
+            duration.value = rocketFourData.formDuration;
+            shape.value = rocketFourData.formShape;
+            color.value = rocketFourData.formColor;
+
+            console.log(duration.value);
+            console.log(shape.value);
+            console.log(color.value);
 
         }
 
         return serverRockets;
 
-        
+
 
     }
 

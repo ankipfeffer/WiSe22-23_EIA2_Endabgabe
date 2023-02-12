@@ -1,18 +1,12 @@
 namespace firework {
 
-
-
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
 
     let duration: number;
     let shape: string;
     let color: string;
-    let radius: number;
-    let opacity: number;
-    let velocity: Vector;
     let rocket: Rocket[] = [];
-    let particle: Particle;
 
     export let rocketOne: boolean = true;
     export let rocketTwo: boolean = false;
@@ -31,8 +25,8 @@ namespace firework {
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-        crc2.canvas.width = window.innerWidth * 0.6;
-        crc2.canvas.height = window.innerHeight * 0.6;
+        crc2.canvas.width = window.innerWidth * 0.7;
+        crc2.canvas.height = window.innerHeight * 0.7;
 
 
         document.querySelector("canvas").addEventListener("click", canvasClick);
@@ -41,16 +35,16 @@ namespace firework {
         document.getElementById("rocketTwo").addEventListener("click", rocketButtonClick);
         document.getElementById("rocketThree").addEventListener("click", rocketButtonClick);
         document.getElementById("rocketFour").addEventListener("click", rocketButtonClick);
-
+      
+        getSavedRocket();
         window.setInterval(update, 20);
-
     }
 
     function canvasClick(_event: MouseEvent): void {
         let rect: DOMRect = canvas.getBoundingClientRect();
 
-        let mousePositionX: number = _event.clientX - rect.left - 110;
-        let mousePositionY: number = _event.clientY - rect.top - 60;
+        let mousePositionX: number = _event.clientX - rect.left - 10;
+        let mousePositionY: number = _event.clientY - rect.top - 10;
 
         console.log(mousePositionX, mousePositionY);
 
@@ -88,7 +82,7 @@ namespace firework {
     }
 
 
-    export async function saveButtonClick(_addend: Event): Promise<void> {
+    export async function saveButtonClick(_event: Event): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
         for (let entry of formData) {
             duration = Number(formData.get("formDuration"));
@@ -109,26 +103,30 @@ namespace firework {
     function rocketButtonClick(_event: MouseEvent): void {
         let eventTarget: EventTarget = _event.target;
         let rocketDivOne: HTMLDivElement = <HTMLDivElement>document.getElementById("rocketOne");
+        let rocketImageOne: HTMLImageElement = <HTMLImageElement>document.getElementById("rocketImageOne");
         let rocketDivTwo: HTMLDivElement = <HTMLDivElement>document.getElementById("rocketTwo");
+        let rocketImageTwo: HTMLImageElement = <HTMLImageElement>document.getElementById("rocketImageTwo");
         let rocketDivThree: HTMLDivElement = <HTMLDivElement>document.getElementById("rocketThree");
+        let rocketImageThree: HTMLImageElement = <HTMLImageElement>document.getElementById("rocketImageThree");
         let rocketDivFour: HTMLDivElement = <HTMLDivElement>document.getElementById("rocketFour");
+        let rocketImageFour: HTMLImageElement = <HTMLImageElement>document.getElementById("rocketImageFour");
 
-        if (eventTarget == rocketDivOne) {
+        if (eventTarget == rocketDivOne || eventTarget == rocketImageOne) {
             rocketOne = true;
             rocketTwo = false;
             rocketThree = false;
             rocketFour = false;
-        } else if (eventTarget == rocketDivTwo) {
+        } else if (eventTarget == rocketDivTwo || eventTarget == rocketImageTwo) {
             rocketOne = false;
             rocketTwo = true;
             rocketThree = false;
             rocketFour = false;
-        } else if (eventTarget == rocketDivThree) {
+        } else if (eventTarget == rocketDivThree || eventTarget == rocketImageThree) {
             rocketOne = false;
             rocketTwo = false;
             rocketThree = true;
             rocketFour = false;
-        } else if (eventTarget == rocketDivFour) {
+        } else if (eventTarget == rocketDivFour || eventTarget == rocketImageFour) {
             rocketOne = false;
             rocketTwo = false;
             rocketThree = false;
