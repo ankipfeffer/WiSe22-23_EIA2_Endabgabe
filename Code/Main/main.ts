@@ -97,7 +97,7 @@ namespace firework {
 
             console.log(entry);
         }
-        // sendData(formData);
+        sendData(formData);
     }
 
 
@@ -176,7 +176,7 @@ namespace firework {
             rocketThree = false;
         }
 
-        // getSavedRocket();
+        getSavedRocket();
 
     }
 

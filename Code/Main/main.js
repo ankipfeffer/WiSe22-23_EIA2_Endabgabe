@@ -69,7 +69,7 @@ var firework;
             color = String(formData.get("formColor"));
             console.log(entry);
         }
-        // sendData(formData);
+        firework.sendData(formData);
     }
     firework.saveButtonClick = saveButtonClick;
     function getRandomNumber(_min, _max) {
@@ -142,7 +142,7 @@ var firework;
             firework.rocketTwo = false;
             firework.rocketThree = false;
         }
-        // getSavedRocket();
+        firework.getSavedRocket();
     }
 })(firework || (firework = {}));
 //# sourceMappingURL=main.js.map
