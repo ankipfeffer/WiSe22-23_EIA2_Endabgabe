@@ -1,3 +1,8 @@
+//  Aufgabe: Endabgabe Feuerwerk
+//  Name: Ann-Kathrin Pfeffer
+//  Matrikel: 269899
+//  Datum: 12.02.2023
+//  Quellen: In Zusammenarbeit mit Vivien Peschke, Cara Brüggendieck und Henning Pils
 var firework;
 (function (firework) {
     let duration;
